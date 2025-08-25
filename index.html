@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -288,7 +287,7 @@
                     <span id="profile-placeholder">👤</span>
                     <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
                 </div>
-                <div class="upload-prompt">คลิกเพื่ออัพโหลดรูปโปรไฟล์</div>
+                <div class="upload-prompt"></div>
                 <div class="header-content">
                     <h1>RESUME</h1>
                     <div class="subtitle">ประวัติส่วนตัว</div>
@@ -345,7 +344,7 @@
                 <div class="section">
                     <h2 class="section-title">กิจกรรมที่ชอบ</h2>
                     <ul class="skills-list">
-                        <li>เตะบฟุตบอล</li>
+                        <li>เตะฟุตบอล</li>
                         <li>เล่นดนตรี</li>
                         <li>ฟังเพลง</li>
                     </ul>
@@ -418,7 +417,7 @@
                     img.style.display = 'block';
                     
                     
-                    document.querySelector('.upload-prompt').textContent = 'คลิกเพื่อเปลี่ยนรูป';
+                    document.querySelector('.upload-prompt')
                 }
                 reader.readAsDataURL(file);
             }
@@ -426,7 +425,7 @@
 
        
         function setDefaultProfileImage() {
-            const imageUrl = 'https://via.placeholder.com/120x120/4285F4/FFFFFF?text=Profile'; // เปลี่ยน URL นี้
+            const imageUrl = 'https://via.placeholder.com/120x120/4285F4/FFFFFF?text=Profile';
             const profileDiv = document.querySelector('.profile-image');
             const placeholder = document.getElementById('profile-placeholder');
             
@@ -437,7 +436,7 @@
             placeholder.style.display = 'none';
             profileDiv.appendChild(img);
             
-            document.querySelector('.upload-prompt').textContent = 'คลิกเพื่อเปลี่ยนรูป';
+            document.querySelector('.upload-prompt')
         }
 
        
