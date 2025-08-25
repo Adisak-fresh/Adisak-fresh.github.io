@@ -1,1 +1,447 @@
 Hello Wold555666ss33
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume ประวัติส่วนตัว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #d4af37 0%, #f4d03f 50%, #e6c767 100%);
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .dots {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #1e40af;
+            border-radius: 50%;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #1976d2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .upload-prompt {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+            color: #1565c0;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #2c5aa0;
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .content {
+            padding: 40px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #d4af37;
+            display: inline-block;
+        }
+
+        .personal-info {
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .personal-info p {
+            margin-bottom: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        .contact-item::before {
+            content: "📞";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item:nth-child(2)::before {
+            content: "📧";
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background: linear-gradient(90deg, #e3f2fd, #f8f9ff);
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border-left: 4px solid #d4af37;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hobby-tag {
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #1e40af;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-section {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .experience-item {
+            margin-bottom: 15px;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+
+        .dots-decoration {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+            opacity: 0.3;
+        }
+
+        .dots-decoration .dot {
+            width: 4px;
+            height: 4px;
+            background: #d4af37;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
+            }
+
+            .header {
+                padding: 30px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+    
+        <div class="header">
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-image" onclick="uploadImage()">
+                    <span id="profile-placeholder">👤</span>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                </div>
+                <div class="upload-prompt">คลิกเพื่ออัพโหลดรูปโปรไฟล์</div>
+                <div class="header-content">
+                    <h1>RESUME</h1>
+                    <div class="subtitle">ประวัติส่วนตัว</div>
+                    <p class="description">
+                        ปัจจุบันกำลังเรียนอยู่ที่ วิทยาลัยเทคนิคยวนแก่น ผมหวังเป็น
+                        อย่างมาก ที่จะเรียนรู้เกี่ยวกับงานได้มอบหมายอย่างดี
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="content">
+          
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title">เกี่ยวกับฉัน</h2>
+                    <div class="personal-info">
+                        <p><strong>ผมชื่อ</strong> อดิศักดิ์ จันทรกาธ ปัจจุบันอายุ</p>
+                        <p><strong>20 ปี</strong> ผมอาศัยอยู่ที่ขอนแก่น เป็นที่อยู่</p>
+                        <p>ของผมตั้งแต่เด็ก ๆ ผมชอบอ่านหนังสือ</p>
+                        <p>และฟังเพลง</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">ข้อมูลส่วนตัว</h2>
+                    <div class="personal-info">
+                        <p><strong>ชื่อ - สกุล :</strong> อดิศักดิ์ จันทรการธ</p>
+                        <p><strong>ชื่อเล่น :</strong> เฟรช</p>
+                        <p><strong>วัน-เดือน-ปีเกิด :</strong> 22 ตุลาคม 2548</p>
+                        <p><strong>อายุ :</strong> 20 ปี</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">ข้อมูลครอบครัว</h2>
+                    <div class="personal-info">
+                        <p><strong>บิดา :</strong> เกีรติศักดิ์ จันทรการ อาชีพ : ค้าขาย</p>
+                        <p><strong>โทร :</strong> 080-454-5456</p>
+                        <p><strong>มารดา :</strong> อมีนา ภูเงินทรัพย์ อาชีพ : ค้าขาย</p>
+                        <p><strong>โทร :</strong> 090-576-9899</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">การติดต่อ</h2>
+                    <div class="contact-item">080-556-3526</div>
+                    <div class="contact-item">อดิศักดิ์ จันทรการธ</div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">กิจกรรมที่ชอบ</h2>
+                    <ul class="skills-list">
+                        <li>เตะบฟุตบอล</li>
+                        <li>เล่นดนตรี</li>
+                        <li>ฟังเพลง</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">งานอดิเรก</h2>
+                    <div class="hobbies-list">
+                        <div class="hobby-tag">เดินเล่น</div>
+                        <div class="hobby-tag">อ่านหนังสือ</div>
+                        <div class="hobby-tag">ขับรถเล่น</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">ทักษะการทำงาน</h2>
+                    <div class="experience-section">
+                        <div class="experience-item">
+                            <div class="experience-title">การเขียนโปรแกรมเบื้องต้น</div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-title">การทำงานเป็นทีม</div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-title">มีความรับผิดชอบและความตั้งใจสูง</div>
+                        </div>
+                        
+                        <div class="dots-decoration">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function uploadImage() {
+            document.getElementById('imageUpload').click();
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const profileDiv = document.querySelector('.profile-image');
+                    const placeholder = document.getElementById('profile-placeholder');
+                    
+                 
+                    placeholder.style.display = 'none';
+                    
+                    
+                    let img = profileDiv.querySelector('img');
+                    if (!img) {
+                        img = document.createElement('img');
+                        profileDiv.appendChild(img);
+                    }
+                    
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    
+                    
+                    document.querySelector('.upload-prompt').textContent = 'คลิกเพื่อเปลี่ยนรูป';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+       
+        function setDefaultProfileImage() {
+            const imageUrl = 'https://via.placeholder.com/120x120/4285F4/FFFFFF?text=Profile'; // เปลี่ยน URL นี้
+            const profileDiv = document.querySelector('.profile-image');
+            const placeholder = document.getElementById('profile-placeholder');
+            
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.style.display = 'block';
+            
+            placeholder.style.display = 'none';
+            profileDiv.appendChild(img);
+            
+            document.querySelector('.upload-prompt').textContent = 'คลิกเพื่อเปลี่ยนรูป';
+        }
+
+       
+       
+    </script>
+</body>
+</html>
